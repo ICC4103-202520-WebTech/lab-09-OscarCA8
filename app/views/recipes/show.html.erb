@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <h1><%= @recipe.title %></h1>
+
+      <p><strong>Cook Time:</strong> <%= @recipe.cook_time %> minutes</p>
+      <p><strong>Difficulty:</strong> <%= @recipe.difficulty %></p>
+
+      <h3>Instructions</h3>
+      <div class="rich-text text-start">
+        <%= @recipe.instructions %>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-warning me-2" %>
+        <%= link_to "Back", recipes_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
