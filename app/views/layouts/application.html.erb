@@ -33,13 +33,23 @@
               <li class="nav-item">
                 <%= link_to "Add Recipe", new_recipe_path, class: "nav-link" %>
               </li>
+              <% if current_user.admin? %>
+                <li class="nav-item">
+                  <%= link_to "Manage Users", users_path, class: "nav-link" %>
+                </li>
+              <% end %>
             <% end %>
           </ul>
 
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <span class="nav-link">Logged in as: <strong><%= current_user.email %></strong></span>
+                <span class="nav-link">
+                  Logged in as: <strong><%= current_user.email %></strong>
+                  <% if current_user.admin? %>
+                    (<span class="text-danger">admin</span>)
+                  <% end %>
+                </span>
               </li>
               <li class="nav-item">
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
