@@ -93,7 +93,7 @@ builder:
 # Use a different ssh user than root
   ssh:
     user: root
-    key: /home/oscarrusher/.ssh/id_ed25519
+    key: "/home/oscarrusher/.ssh/id_ed25519"
 
 
 # Use accessory services (secrets come from .kamal/secrets).
