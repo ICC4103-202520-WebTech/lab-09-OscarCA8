@@ -81,9 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: recipe_book_app_production
-    username: recipe_book_app
-    password: <%= ENV["RECIPE_BOOK_APP_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *primary_production
     database: recipe_book_app_production_cache
