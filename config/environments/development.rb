@@ -72,4 +72,14 @@ Rails.application.configure do
 
   # devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # ------------------------------
+  # SOLID QUEUE CONFIGURATION
+  # ------------------------------
+
+  # Use Solid Queue as Active Job adapter
+  config.active_job.queue_adapter = :solid_queue
+
+  # Connect Solid Queue to the proper database defined in database.yml
+  config.solid_queue.connects_to = { database: { writing: :queue } }
 end

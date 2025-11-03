@@ -104,7 +104,7 @@ accessories:
     env:
       clear:
         POSTGRES_USER: recipe_book
-        POSTGRES_DB: recipe_book_production
+        POSTGRES_DB: recipe_book_app_production
       secret:
         - POSTGRES_PASSWORD
 #     files:
