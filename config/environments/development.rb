@@ -82,4 +82,6 @@ Rails.application.configure do
 
   # Connect Solid Queue to the proper database defined in database.yml
   config.solid_queue.connects_to = { database: { writing: :queue } }
+
+  config.solid_queue.supervise = false
 end
