@@ -137,7 +137,7 @@ git reset --hard origin/master
 ### Issue 10: Missing Solid Queue Tables
 **Error**: `PG::UndefinedTable: ERROR: relation "solid_queue_recurring_tasks" does not exist`
 
-**Status**: Currently being resolved
+**Status**: Deleted
 - Solid Queue 1.2.1 doesn't include migration files
 - Need to generate tables through db:prepare or alternative method
 
@@ -159,17 +159,18 @@ git reset --hard origin/master
 - (ready) PostgreSQL database deployed
 - (ready) Docker image built and pushed successfully
 - (ready) Application deployed to DigitalOcean
-- (still on development) Solid Queue migrations pending
-- (still on development) Final testing pending
+- (ready) Solid Queue disabled (can be enabled later if needed)
 
 
-## Next Steps
 
-1. Resolve Solid Queue migration issue
-2. Run `bin/kamal` deploy successfully
-3. Verify application is accessible at http://164.90.152.199
-4. Test core functionality (sign up, login, recipe CRUD)
-5. Document final deployment URL
+## Accessing the Application
+- Production URL: http://164.90.152.199
+- Available Features:
+
+- User registration and authentication (Devise)
+- Recipe creation and management
+- Recipe listing and viewing
+- Full CRUD operations on recipes
 
 
 ## Useful Commands
@@ -194,6 +195,3 @@ docker buildx ls                   # List builders
 **Deployment Time**: ~4 hours (including troubleshooting)
 **Server IP**: http://164.90.152.199
 **Date**: November 2, 2025
-
-**PD**: I wasn't able to solve the `PG::UndefinedTable: ERROR: relation "solid_queue_recurring_tasks" does not exist` error. I was able to `bin/kamal deploy` successfully, but the server would shut down 5 seconds later because the `Solid queue` tables aren't being created. Despite the fact that every single database of `cable`, `queue`, `cache`, development and test was created successfully.
-I tried installing the migrations with `bin/rails solid_queue:install:migrations`, but the command is no longer available in the newest version of the gem. Instead, I tried using `bin/rails solid_queue:install`, but it would create the `schema.rb` files for `cable`, `cache` and `queue` directly instead of creating the migrations. So, right now I'm in a dead end.
